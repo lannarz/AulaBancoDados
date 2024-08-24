@@ -4,14 +4,14 @@ import { useNavigate } from 'react-router-dom';
 
 
 export default function CreateMatricula() {
-  const [aluno, setAluno] = useState('');
-  const [turma, setTurma] = useState('');
-  const [curso, setCurso] = useState('');
+  const [nome, setNome] = useState('');
+  const [autor, setAutor] = useState('');
+  const [editora, setEditora] = useState('');
 
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const novaMatricula = { aluno, turma, curso };
+    const novaMatricula = { nome, autor, editora };
 
     try {
       const response = await fetch('http://localhost:5000/matriculas', {
@@ -22,16 +22,16 @@ export default function CreateMatricula() {
         body: JSON.stringify(novaMatricula),
       });
       if (response.ok) {
-        alert('Matrícula criada com sucesso!');
-        setAluno('');
-        setTurma('');
-        setCurso('');
+        alert('Livro cadastrado com sucesso!');
+        setNome('');
+        setAutor('');
+        setEditora('');
         navigate("/matriculas");
       } else {
         alert('Erro ao criar matrícula.');
       }
     } catch (error) {
-      console.error('Erro ao criar matrícula:', error);
+      console.error('Erro ao cadastrar livro:', error);
     }
   };
 
@@ -41,26 +41,26 @@ export default function CreateMatricula() {
       <h2>Criar Matrícula</h2>
       <input
         type="text"
-        placeholder="Nome do Aluno"
-        value={aluno}
-        onChange={(e) => setAluno(e.target.value)}
+        placeholder="Nome do Livro"
+        value={nome}
+        onChange={(e) => setNome(e.target.value)}
         required
       />
       <input
         type="text"
-        placeholder="Turma"
-        value={turma}
-        onChange={(e) => setTurma(e.target.value)}
+        placeholder="Autor"
+        value={autor}
+        onChange={(e) => setAutor(e.target.value)}
         required
       />
       <input
         type="text"
-        placeholder="Curso"
-        value={curso}
-        onChange={(e) => setCurso(e.target.value)}
+        placeholder="Editora"
+        value={editora}
+        onChange={(e) => setEditora(e.target.value)}
         required
       />
-      <button type="submit">Criar Matrícula</button>
+      <button type="submit">Cadastrar Livro</button>
     </form>
     </div>
   );

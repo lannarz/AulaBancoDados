@@ -27,25 +27,25 @@ export default function ReadMatriculas() {
       if (response.ok) {
 
         setMatriculas(matriculas.filter((matricula) => matricula._id !== id));
-        alert('Matrícula excluída com sucesso!');
+        alert('Livro excluído com sucesso!');
       } else {
-        alert('Erro ao excluir matrícula.');
+        alert('Erro ao excluir livro.');
       }
     } catch (error) {
-      console.error('Erro ao excluir matrícula:', error);
+      console.error('Erro ao excluir livro:', error);
     }
   };
 
   return (
     <div className='container'>
-      <h2>Lista de Matrículas</h2>
+      <h2>Lista de Livros</h2>
       <table  className="table-container" border="1">
         <thead>
           <tr>
-            <th>Código Matrícula</th>
-            <th>Nome do Aluno</th>
-            <th>Turma</th>
-            <th>Curso</th>
+            <th>Código Livro</th>
+            <th>Nome do Livro</th>
+            <th>Autor</th>
+            <th>Editora</th>
             <th>Ações</th>
           </tr>
         </thead>
@@ -53,9 +53,9 @@ export default function ReadMatriculas() {
           {matriculas.map((matricula) => (
             <tr key={matricula._id}>
               <td>{matricula._id}</td>
-              <td>{matricula.aluno}</td>
-              <td>{matricula.turma}</td>
-              <td>{matricula.curso}</td>
+              <td>{matricula.nome}</td>
+              <td>{matricula.autor}</td>
+              <td>{matricula.editora}</td>
               <td>
                 <button onClick={() => handleDelete(matricula._id)}>Excluir</button>
               </td>

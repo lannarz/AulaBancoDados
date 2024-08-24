@@ -3,15 +3,15 @@ import { useNavigate } from 'react-router-dom';
 
 export default function UpdateMatricula() {
   const [id, setId] = useState('');
-  const [aluno, setAluno] = useState('');
-  const [turma, setTurma] = useState('');
-  const [curso, setCurso] = useState('');
+  const [nome, setNome] = useState('');
+  const [autor, setAutor] = useState('');
+  const [editora, setEditora] = useState('');
 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const atualizacao = { aluno, turma, curso };
+    const atualizacao = { nome, autor, editora };
 
     try {
       const response = await fetch(`http://localhost:5000/matriculas/${id}`, {
@@ -22,13 +22,13 @@ export default function UpdateMatricula() {
         body: JSON.stringify(atualizacao),
       });
       if (response.ok) {
-        alert('Matrícula atualizada com sucesso!');
+        alert('Livro atualizado com sucesso!');
         navigate("/matriculas");
       } else {
-        alert('Erro ao atualizar matrícula.');
+        alert('Erro ao atualizar livro.');
       }
     } catch (error) {
-      console.error('Erro ao atualizar matrícula:', error);
+      console.error('Erro ao atualizar livro:', error);
     }
   };
 
@@ -45,26 +45,26 @@ export default function UpdateMatricula() {
       />
       <input
         type="text"
-        placeholder="Nome do Aluno"
-        value={aluno}
-        onChange={(e) => setAluno(e.target.value)}
+        placeholder="Nome do Livro"
+        value={nome}
+        onChange={(e) => setNome(e.target.value)}
         required
       />
       <input
         type="text"
-        placeholder="Turma"
-        value={turma}
-        onChange={(e) => setTurma(e.target.value)}
+        placeholder="Autor"
+        value={autor}
+        onChange={(e) => setAutor(e.target.value)}
         required
       />
       <input
         type="text"
-        placeholder="Curso"
-        value={curso}
-        onChange={(e) => setCurso(e.target.value)}
+        placeholder="Editora"
+        value={editora}
+        onChange={(e) => setEditora(e.target.value)}
         required
       />
-      <button type="submit">Atualizar Matrícula</button>
+      <button type="submit">Atualizar Livro</button>
     </form>
     </div>
   );
