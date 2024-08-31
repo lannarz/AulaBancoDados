@@ -35,10 +35,10 @@ export default function UpdateMatricula() {
   return (
     <div className='container'>
     <form  className="form-container" onSubmit={handleSubmit}>
-      <h2>Atualizar Matrícula</h2>
+      <h2>Atualizar Livro</h2>
       <input
         type="text"
-        placeholder="ID da Matrícula"
+        placeholder="ID do livro"
         value={id}
         onChange={(e) => setId(e.target.value)}
         required
@@ -64,7 +64,7 @@ export default function UpdateMatricula() {
         onChange={(e) => setEditora(e.target.value)}
         required
       />
-      <button type="submit">Atualizar Livro</button>
+      <button type="submit">Salvar</button>
     </form>
     </div>
   );

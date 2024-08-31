@@ -10,7 +10,7 @@ export default function Header() {
 
         <div className='lista'>
              <nav>
-                <ul>
+                <ul className='ul'>
                     <li>Login</li>
                     <li>Cadastrar</li>
                     <li>Favoritos</li>

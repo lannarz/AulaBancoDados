@@ -28,7 +28,7 @@ export default function CreateMatricula() {
         setEditora('');
         navigate("/matriculas");
       } else {
-        alert('Erro ao criar matrícula.');
+        alert('Erro ao cadastrar livro.');
       }
     } catch (error) {
       console.error('Erro ao cadastrar livro:', error);
@@ -38,7 +38,7 @@ export default function CreateMatricula() {
   return (
     <div className='container'>
     <form  className="form-container" onSubmit={handleSubmit}>
-      <h2>Criar Matrícula</h2>
+      <h2>Cadastrar Livro</h2>
       <input
         type="text"
         placeholder="Nome do Livro"
@@ -60,7 +60,7 @@ export default function CreateMatricula() {
         onChange={(e) => setEditora(e.target.value)}
         required
       />
-      <button type="submit">Cadastrar Livro</button>
+      <button type="submit">Salvar</button>
     </form>
     </div>
   );
